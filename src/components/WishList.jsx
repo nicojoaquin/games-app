@@ -4,7 +4,7 @@ import Games from './Games'
 
 const WishList = () => {
 
-  const {wishlist} = useSelector(state => state.wishList)
+  const {list} = useSelector(state => state.wishList)
   
   return (
     <section className= "container mt-4">
@@ -12,7 +12,7 @@ const WishList = () => {
       <hr className="bg-light" />
       <div className = "row p-3">
         {
-          wishlist.map(wishGame => 
+          list.map(wishGame => 
             <Games key={wishGame.id} {...wishGame} />
           )
         }

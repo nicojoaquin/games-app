@@ -10,6 +10,7 @@ import {
 import "./App.css"
 import Header from './components/Header';
 import WishList from './components/WishList';
+import Game from './components/Game';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/wishlist" element={<WishList/>} />
+          <Route path="/game/:gameId" element={<Game/>} />
         </Routes>  
       </ Router>  
     </Provider>

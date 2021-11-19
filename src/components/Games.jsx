@@ -1,34 +1,22 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { setWishList } from '../redux/wishReducer'
+import React from 'react'
+import { useNavigate } from "react-router-dom";
 
-const Games = ({id, name, background_image, released, metacritic}) => {
+const Games = ({id, name, background_image}) => {
 
-  const gameWish = {
-    id,
-    name,
-    background_image,
-    released,
-    metacritic
-  }
-
-  const dispatch= useDispatch()
+  const navigate = useNavigate()
 
   const handleButton = () => {
-    dispatch(setWishList(gameWish))
+    navigate(`/game/${id}`)
   }
 
   return (
     <div className="col-lg-3 col-md-4 mb-4">
       <div className="card bg-dark text-light h-100 rounded-3 shadow">
-        <img className="card-img-top h-50" src={background_image} alt="" />
+        <img className="card-img-top h-75" src={background_image} alt={name} />
         <div className="card-body">
           <h2 className="card-title fs-4">{name}</h2>
           <hr />
-          <h3 className="card-text fs-5">Release: {released}</h3>
-          <hr />
-          <h4 className="card-text fs-5">Metacritic: {metacritic}</h4>
-          <button className="btn btn-outline-info" onClick={() => handleButton() }>Wishlist</button>
+          <button className="btn btn-primary" onClick={() => handleButton() }>Details</button>
         </div>
       </div>
     </div>
