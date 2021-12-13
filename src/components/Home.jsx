@@ -17,7 +17,7 @@ const Home = () => {
         {loader ? (
           <h1 className="text-light">Loading...</h1>
         ) : (
-          games.map((game) => <Games key={game.id} {...game} />)
+          games.map((game) => <Games key={game.id} {...game} game={game} />)
         )}
       </div>
     </main>

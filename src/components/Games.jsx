@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const Games = ({ id, title, thumbnail }) => {
   const navigate = useNavigate();
 
-  const handleButton = () => {
+  const handleNavigate = () => {
     navigate(`/game/${id}`);
   };
 
@@ -15,7 +15,7 @@ const Games = ({ id, title, thumbnail }) => {
         <div className="card-body">
           <h2 className="card-title fs-4">{title}</h2>
           <hr />
-          <button className="btn btn-primary" onClick={() => handleButton()}>
+          <button className="btn btn-primary" onClick={() => handleNavigate()}>
             Details
           </button>
         </div>

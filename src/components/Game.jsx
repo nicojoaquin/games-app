@@ -13,12 +13,10 @@ const Game = () => {
     dispatch(getGame(`https://www.freetogame.com/api/game?id=${gameId}`));
   }, [dispatch, gameId]);
 
-  console.log(game);
-
   return loader ? (
     <h1 className="text-light">Loading...</h1>
   ) : (
-    <GameDetail key={game.id} {...game} />
+    <GameDetail key={game.id} {...game} game={game} />
   );
 };
 
