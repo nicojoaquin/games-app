@@ -19,7 +19,25 @@ body {
 }
 
 .img-detail {
-  border-radius: 30px;
   box-shadow: 0px 0px 5px 0px rgba(117, 117, 117, 0.22);
   width: 500px;
+}
+
+.screens-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+.screens {
+  width: 600px;
+}
+
+@media screen and (max-width: 700px) {
+  .img-detail {
+    width: 90%;
+  }
+  .screens {
+    width: 90%;
+  }
 }

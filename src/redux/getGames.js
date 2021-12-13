@@ -6,11 +6,13 @@ export const getGames = (api) => async (dispatch) => {
   try{
     dispatch(setLoader(true))
     const res = await axios.get(api);
-    const {results} = await res.data
-    dispatch(setGamesList(results))
+    const data = await res.data;
+
+    dispatch(setGamesList(data))
+    
   }
   catch (err) {
-    console.log(err);
+    console.warn(err);
   }
   finally {
     dispatch(setLoader(false))
@@ -21,7 +23,7 @@ export const getGame = (api) => async (dispatch) => {
   
   try {
     dispatch(setLoader(true))
-    const res = await axios.get(api);
+    const res = await axios.get(api)
     const data = await res.data
     dispatch(setGame(data))
   } catch (err) {

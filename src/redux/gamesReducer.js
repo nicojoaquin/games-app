@@ -4,12 +4,13 @@ export const gamesSlice = createSlice({
   name: "games",
   initialState: {
     list: [],
-    game: [],
+    game: {},
     loader: false
   },
   reducers: {
    setGamesList: (state, action) => {
     state.list = action.payload
+    state.game = {};
    },
    setGame: (state, action) => {
      state.game = action.payload
