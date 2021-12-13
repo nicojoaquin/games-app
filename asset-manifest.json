@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/games-app/static/css/main.2430646f.chunk.css",
-    "main.js": "/games-app/static/js/main.7cb24389.chunk.js",
-    "main.js.map": "/games-app/static/js/main.7cb24389.chunk.js.map",
+    "main.css": "/games-app/static/css/main.b5d38e5c.chunk.css",
+    "main.js": "/games-app/static/js/main.ce0916a7.chunk.js",
+    "main.js.map": "/games-app/static/js/main.ce0916a7.chunk.js.map",
     "runtime-main.js": "/games-app/static/js/runtime-main.f52bcfbd.js",
     "runtime-main.js.map": "/games-app/static/js/runtime-main.f52bcfbd.js.map",
     "static/css/2.383c0125.chunk.css": "/games-app/static/css/2.383c0125.chunk.css",
@@ -10,14 +10,14 @@
     "static/js/2.4a38a02a.chunk.js.map": "/games-app/static/js/2.4a38a02a.chunk.js.map",
     "index.html": "/games-app/index.html",
     "static/css/2.383c0125.chunk.css.map": "/games-app/static/css/2.383c0125.chunk.css.map",
-    "static/css/main.2430646f.chunk.css.map": "/games-app/static/css/main.2430646f.chunk.css.map",
+    "static/css/main.b5d38e5c.chunk.css.map": "/games-app/static/css/main.b5d38e5c.chunk.css.map",
     "static/js/2.4a38a02a.chunk.js.LICENSE.txt": "/games-app/static/js/2.4a38a02a.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.f52bcfbd.js",
     "static/css/2.383c0125.chunk.css",
     "static/js/2.4a38a02a.chunk.js",
-    "static/css/main.2430646f.chunk.css",
-    "static/js/main.7cb24389.chunk.js"
+    "static/css/main.b5d38e5c.chunk.css",
+    "static/js/main.ce0916a7.chunk.js"
   ]
 }
