@@ -6,11 +6,16 @@ import GameDetail from "./GameDetail";
 
 const Game = () => {
   const dispatch = useDispatch();
-  const { game, loader } = useSelector((state) => state.games);
+  const { game } = useSelector((state) => state.games);
+  const { loader } = useSelector((state) => state.ui);
   const { gameId } = useParams();
 
   useEffect(() => {
-    dispatch(getGame(`https://www.freetogame.com/api/game?id=${gameId}`));
+    dispatch(
+      getGame(
+        `https://free-to-play-games-database.p.rapidapi.com/api/game?id=${gameId}`
+      )
+    );
   }, [dispatch, gameId]);
 
   return loader ? (

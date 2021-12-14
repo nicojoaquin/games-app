@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { addAlert } from "../components/assets/alert";
 
 export const wishSlice = createSlice({
   name: "games",
@@ -10,10 +11,11 @@ export const wishSlice = createSlice({
     const exist = state.list.find( (game) => game.id === action.payload.id )
 
     if(exist) {
-      return alert('Ya existe este juego en tu lista');
+      return addAlert("It's already on your wishlist!", "error");
     }
 
     state.list = [...state.list, action.payload]
+    addAlert("Added to wishlist!", "success");
    }
   }
 });

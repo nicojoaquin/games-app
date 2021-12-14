@@ -1,5 +1,5 @@
 {
-  "homepage":"https://nicojoaquin.github.io/games-app",
+  "homepage": "https://nicojoaquin.github.io/games-app",
   "name": "redux-app",
   "version": "0.1.0",
   "private": true,
@@ -15,9 +15,10 @@
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.0.2",
     "react-scripts": "4.0.3",
+    "sweetalert2": "^11.3.0",
     "web-vitals": "^1.1.2"
   },
-  "scripts": { 
+  "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",

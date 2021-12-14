@@ -5,10 +5,13 @@ import Games from "./Games";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { list: games, loader } = useSelector((state) => state.games);
+  const { list: games } = useSelector((state) => state.games);
+  const { loader } = useSelector((state) => state.ui);
 
   useEffect(() => {
-    dispatch(getGames("https://www.freetogame.com/api/games"));
+    dispatch(
+      getGames("https://free-to-play-games-database.p.rapidapi.com/api/games")
+    );
   }, [dispatch]);
 
   return (

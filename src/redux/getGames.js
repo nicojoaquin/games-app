@@ -1,15 +1,25 @@
-import { setGame, setGamesList, setLoader } from "./gamesReducer";
+import { setGame, setGamesList } from "./gamesReducer";
+import { setLoader } from "./uiReducer";
 import axios from 'axios'
 
+const options = {
+  headers: {
+    'x-rapidapi-host': 'free-to-play-games-database.p.rapidapi.com',
+    'x-rapidapi-key': 'dcb19afa2emshd5e6d499778292dp1d7971jsn69c10547df1f'
+  }
+}
+
 export const getGames = (api) => async (dispatch) => {
-  
+    
   try{
+
     dispatch(setLoader(true))
 
-    const res = await axios.get(api);
+    const res = await axios.get(api, options);
     const data = await res.data;
 
     dispatch(setGamesList(data))  
+
   }
   catch (err) {
     console.warn(err);
@@ -21,14 +31,16 @@ export const getGames = (api) => async (dispatch) => {
 }
 
 export const getGame = (api) => async (dispatch) => {
-  
+
   try {
+
     dispatch(setLoader(true))
 
-    const res = await axios.get(api)
+    const res = await axios.get(api, options)
     const data = await res.data
 
     dispatch(setGame(data))
+
   } catch (err) {
     console.log(err);
   }
