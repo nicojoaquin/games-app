@@ -16,10 +16,13 @@ export const wishSlice = createSlice({
 
     state.list = [...state.list, action.payload]
     addAlert("Added to wishlist!", "success");
+   },
+   setDeleteWishList: (state, action) => {
+     state.list = state.list.filter( game => game.id !== action.payload);
    }
   }
 });
 
-export const {setWishList} = wishSlice.actions; 
+export const {setWishList, setDeleteWishList} = wishSlice.actions; 
 
 export default wishSlice.reducer;
