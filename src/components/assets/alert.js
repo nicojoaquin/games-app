@@ -8,7 +8,7 @@ export const addAlert = (msg, icon) => {
     padding: "2rem",
     position: "center",
     showConfirmButton: false,
-    timer: 1500,
+    timer: 1200,
     customClass: {
       title: "alert-title",
     },

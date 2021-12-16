@@ -1,29 +1,32 @@
 import { store } from './store/store'
 import { Provider } from 'react-redux'
-import Home from './components/Home';
+import { PersistGate } from 'redux-persist/integration/react';
+import persistStore from 'redux-persist/es/persistStore';
 import {
   HashRouter as Router,
   Routes,
   Route
 } from "react-router-dom"
-
-import "./App.css"
+import Home from './components/Home';
 import Header from './components/Header';
-import WishList from './components/WishList';
 import Game from './components/Game';
+import WishList from './components/WishList';
+import "./App.css"
 
 
 function App() {
   return (
     <Provider store={store}>
-      <Router>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="/wishlist" element={<WishList/>} />
-          <Route path="/game/:gameId" element={<Game/>} />
-        </Routes>  
-      </ Router>  
+      <PersistGate loading={null} persistor={persistStore(store)}>
+        <Router>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home/>} />
+            <Route path="/wishlist" element={<WishList/>} />
+            <Route path="/game/:gameId" element={<Game/>} />
+          </Routes>  
+        </ Router>  
+      </PersistGate>
     </Provider>
   );
 }

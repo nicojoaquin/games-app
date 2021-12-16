@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { getGame } from "../redux/getGames";
+import { setInput } from "../redux/uiReducer";
 import GameDetail from "./GameDetail";
 
 const Game = () => {
@@ -16,6 +17,7 @@ const Game = () => {
         `https://free-to-play-games-database.p.rapidapi.com/api/game?id=${gameId}`
       )
     );
+    dispatch(setInput(""));
   }, [dispatch, gameId]);
 
   return loader ? (

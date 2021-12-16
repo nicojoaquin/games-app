@@ -5,6 +5,7 @@ export const gamesSlice = createSlice({
   initialState: {
     list: [],
     game: {},
+    filteredGames: [],
   },
   reducers: {
    setGamesList: (state, action) => {
@@ -12,11 +13,14 @@ export const gamesSlice = createSlice({
     state.game = {};
    },
    setGame: (state, action) => {
-     state.game = action.payload
+     state.game = action.payload;
+   },
+   setSearch: (state, action) => {
+     state.filteredGames = state.list.filter( game => game.title.toLowerCase().includes(action.payload.trim().toLowerCase()));
    }
   }
 });
 
-export const { setGamesList, setGame } = gamesSlice.actions; 
+export const { setGamesList, setGame, setSearch } = gamesSlice.actions; 
 
 export default gamesSlice.reducer;

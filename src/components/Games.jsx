@@ -5,7 +5,7 @@ const Games = ({ id, title, thumbnail }) => {
   const navigate = useNavigate();
 
   const handleNavigate = () => {
-    navigate(`/game/${id}`);
+    navigate(`/game/${id}q=${title.toLowerCase()}`);
   };
 
   return (

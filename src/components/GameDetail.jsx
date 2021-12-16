@@ -6,6 +6,7 @@ const GameDetail = ({
   game,
   title,
   thumbnail,
+  game_url,
   screenshots,
   genre,
   release_date,
@@ -27,9 +28,21 @@ const GameDetail = ({
             src={thumbnail}
             alt={title}
           />
-          <button className="btn btn-primary text-light" onClick={addWishList}>
-            Wishlist
-          </button>
+          <div>
+            <button
+              className="btn btn-primary text-light"
+              onClick={addWishList}
+            >
+              Wishlist
+            </button>
+            <a
+              href={game_url}
+              target="blank"
+              className="btn btn-success text-light ms-3"
+            >
+              Play game
+            </a>
+          </div>
         </div>
         <div className="d-flex flex-column p-5 text-center">
           <h2 className="fs-3">{title}</h2>
