@@ -17,7 +17,6 @@ export const getGames = (api) => async (dispatch) => {
 
     const res = await axios.get(api, options);
     const data = await res.data;
-
     dispatch(setGamesList(data))  
 
   }

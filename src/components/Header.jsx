@@ -12,8 +12,8 @@ const Header = () => {
           <Link to="/wishlist" className="text-light text-decoration-none">
             Wishlist
           </Link>
-          <Link to="/" className="text-light text-decoration-none">
-            Logout
+          <Link to="/login" className="text-light text-decoration-none">
+            Sign In
           </Link>
         </div>
       </div>
