@@ -33,6 +33,27 @@ body {
   width: 600px;
 }
 
+.auth-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+.authForm {
+  width: 400px;
+  height: 400px;
+}
+
+.logOut {
+  display: none;
+  position: absolute;
+  top: 3.5rem;
+  right: 0rem;
+}
+
 @media screen and (max-width: 700px) {
   .img-detail {
     width: 90%;

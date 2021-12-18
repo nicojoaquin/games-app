@@ -8,32 +8,20 @@ export const authReducer = createSlice({
     name: null
   },
   reducers: {
-    setChecking: (state, action) => {
-      return state
-    },
-    setCheckingFinish: (state, atcion) => {
-      return state
-    },
-    setStartLogin: (state, action) => {
-      return state
+    setChecking: (state) => {
+      state.checking = false
     },
     setLogin: (state, action) => {
       state.checking = false
       state.uid = action.payload.uid
       state.name = action.payload.name
     },
-    setStartRegister: (state, action) => {
-      return state
-    },
-    setStartRenew: (state, action) => {
-      return state
-    },
-    setLogout: (state, action) => {
-      return state
+    setLogout: (state) => {
+      state.checking = false;
     }
   }
 });
 
-export const {setLogin} = authReducer.actions; 
+export const {setLogin, setChecking, setLogout} = authReducer.actions; 
 
 export default authReducer.reducer;

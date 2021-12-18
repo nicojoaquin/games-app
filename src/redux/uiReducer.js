@@ -4,7 +4,8 @@ export const uiSlice = createSlice({
   name: "ui",
   initialState: {
     loader: false,
-    inputValue: ''
+    inputValue: '',
+    open: false
   },
   reducers: {
     setLoader: (state, action) => {
@@ -12,10 +13,13 @@ export const uiSlice = createSlice({
     },
     setInput: (state, action) => {
       state.inputValue = action.payload;
+    },
+    setOpen: (state, action) => {
+      state.open = action.payload
     }
   }
 });
 
-export const {setLoader, setInput} = uiSlice.actions; 
+export const {setLoader, setInput, setOpen} = uiSlice.actions; 
 
 export default uiSlice.reducer;
