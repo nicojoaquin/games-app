@@ -1,6 +1,6 @@
-import { setGame, setGamesList } from "./gamesReducer";
-import { setLoader } from "./uiReducer";
 import axios from 'axios'
+import { setGame, setGamesList } from "../../gamesReducer";
+import { setLoader } from "../../uiReducer";
 
 const options = {
   headers: {

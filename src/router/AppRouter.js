@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   HashRouter as Router,
   Routes,
@@ -16,18 +16,12 @@ import { startChecking } from '../redux/actions/auth/startChecking';
 const AppRouter = () => {
 
   const dispatch = useDispatch();
-  const { checking, uid } = useSelector( state => state.auth )
 
   useEffect(() => {
     
     dispatch(startChecking('auth/renew'))
     
   }, [dispatch])
-
-  
-  if(checking) {
-    return <h1 className='text-light d-flex justify-content-center align-items-center'>Cheking</h1>
-  }
 
   return (
     <Router>
@@ -37,7 +31,7 @@ const AppRouter = () => {
         <Route path="/wishlist" element={<WishList/>} />
         <Route path="/game/:gameId" element={<Game/>} />
         <Route path="/auth" element={
-          <PrivateRoute uid = {!uid}>
+          <PrivateRoute>
             <AuthContainer />
           </PrivateRoute>
         } />

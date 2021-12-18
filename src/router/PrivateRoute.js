@@ -1,7 +1,10 @@
+import { useSelector } from 'react-redux'
 import {Navigate} from 'react-router-dom'
 
-export const PrivateRoute = ({children, uid}) => {
+export const PrivateRoute = ({children}) => {
 
-  return uid ? children : <Navigate to='/' />
+  const { uid } = useSelector( state => state.auth )
+
+  return !uid ? children : <Navigate to='/' />
 
 }

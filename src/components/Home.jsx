@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setSearch } from "../redux/gamesReducer";
-import { getGames } from "../redux/getGames";
+import { getGames } from "../redux/actions/games/getGames";
 import { setInput } from "../redux/uiReducer";
 import Games from "./Games";
 
