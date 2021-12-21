@@ -31,7 +31,6 @@ const fetchToken = (endpoint, data, method = 'get') => {
   if(method === 'get') {
     
     return axios.get(url, {
-      method,
       headers
     })
 

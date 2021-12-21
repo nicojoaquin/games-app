@@ -13,8 +13,7 @@ export const startRegister = (email, password, name, endpoint) => async (dispatc
     }, 'post')
     
     const data = await res.data;
-    console.log(data);
-    
+
     if(data.ok) {
       localStorage.setItem('token', data.token);
       localStorage.setItem('token-init-date', new Date().getTime());

@@ -8,7 +8,6 @@ export const startChecking = (endpoint) => async (dispatch) => {
     const res = await fetchToken(endpoint)
     
     const data = await res.data;
-    console.log(data);
     
     if(data.ok) {
       localStorage.setItem('token', data.token);

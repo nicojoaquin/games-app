@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const WishListGame = ({ id, title, thumbnail, handleSub }) => {
+const WishListGame = ({ _id, game, id, title, thumbnail, handleSub }) => {
   const navigate = useNavigate();
 
   const handleNavigate = () => {
@@ -18,7 +18,10 @@ const WishListGame = ({ id, title, thumbnail, handleSub }) => {
           <button className="btn btn-primary" onClick={() => handleNavigate()}>
             Details
           </button>
-          <button className="btn btn-danger ms-3" onClick={() => handleSub(id)}>
+          <button
+            className="btn btn-danger ms-3"
+            onClick={() => handleSub(game)}
+          >
             Delete
           </button>
         </div>

@@ -12,7 +12,6 @@ export const startLogin = (email, password, endpoint) => async (dispatch) => {
     }, 'post')
 
     const data = await res.data;
-    console.log(data);
     
     if(data.ok) {
       localStorage.setItem('token', data.token);
@@ -28,6 +27,8 @@ export const startLogin = (email, password, endpoint) => async (dispatch) => {
     
   } catch (err) {
    addAlert(err.response.data.msg, "error")
+  } finally{
+    window.location.reload();
   }
 
 }

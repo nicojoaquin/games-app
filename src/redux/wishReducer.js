@@ -1,28 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { addAlert } from "../components/assets/alert";
 
 export const wishSlice = createSlice({
-  name: "games",
+  name: "wishList",
   initialState: {
-    list: [],
+    wishList: []
   },
   reducers: {
    setWishList: (state, action) => {
-    const exist = state.list.find( (game) => game.id === action.payload.id )
-
-    if(exist) {
-      return addAlert("It's already on your wishlist!", "error");
-    }
-
-    state.list = [...state.list, action.payload]
-    addAlert("Added to wishlist!", "success");
+    state.wishList = [...state.wishList, action.payload]
+   },
+   setLoadWishList: (state, action) => {
+    state.wishList = [...action.payload]      
    },
    setDeleteWishList: (state, action) => {
-     state.list = state.list.filter( game => game.id !== action.payload);
+     state.wishList = state.wishList.filter( game => game.id !== action.payload);
    }
   }
 });
 
-export const {setWishList, setDeleteWishList} = wishSlice.actions; 
+export const {setWishList, setDeleteWishList, setLoadWishList} = wishSlice.actions; 
 
 export default wishSlice.reducer;

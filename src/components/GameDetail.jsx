@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { setWishList } from "../redux/wishReducer";
+import { addToWishList } from "../redux/actions/games/addToWishList";
 
 const GameDetail = ({
   game,
@@ -15,8 +15,15 @@ const GameDetail = ({
 }) => {
   const dispatch = useDispatch();
 
+  const objectToSend = {
+    id: game.id,
+    title,
+    thumbnail,
+    played: false,
+  };
+
   const addWishList = () => {
-    dispatch(setWishList(game));
+    dispatch(addToWishList(objectToSend));
   };
 
   return (

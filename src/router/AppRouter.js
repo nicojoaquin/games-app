@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   HashRouter as Router,
   Routes,
@@ -16,12 +16,17 @@ import { startChecking } from '../redux/actions/auth/startChecking';
 const AppRouter = () => {
 
   const dispatch = useDispatch();
+  const { checking } = useSelector( state => state.auth )
 
   useEffect(() => {
     
     dispatch(startChecking('auth/renew'))
     
   }, [dispatch])
+
+  if(checking) {
+    return <h1>Checking...</h1>
+  };
 
   return (
     <Router>
