@@ -13,6 +13,6 @@ export const deleteWishGame = (game) => async (dispatch) => {
     }
     
   } catch (err) {
-    
+    console.warn(err);
   }
 }

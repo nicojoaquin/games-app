@@ -12,21 +12,19 @@ import Game from '../components/Game';
 import WishList from '../components/WishList';
 import AuthContainer from '../components/auth/AuthContainer';
 import { startChecking } from '../redux/actions/auth/startChecking';
+import { getWishList } from '../redux/actions/games/getWishList';
 
 const AppRouter = () => {
 
   const dispatch = useDispatch();
-  const { checking } = useSelector( state => state.auth )
-
+  const { uid } = useSelector( state => state.auth )
+  
   useEffect(() => {
     
-    dispatch(startChecking('auth/renew'))
-    
-  }, [dispatch])
+    dispatch(startChecking('auth/renew'))   
+    dispatch(getWishList(uid)); 
 
-  if(checking) {
-    return <h1>Checking...</h1>
-  };
+  }, [dispatch, uid])
 
   return (
     <Router>

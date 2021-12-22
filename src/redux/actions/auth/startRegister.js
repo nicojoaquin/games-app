@@ -27,6 +27,8 @@ export const startRegister = (email, password, name, endpoint) => async (dispatc
     
   } catch (err) {
    addAlert(err.response.data.msg, "error")
+  } finally {
+    window.location.reload();
   }
 
 }

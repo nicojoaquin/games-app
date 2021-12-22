@@ -1,6 +1,8 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { addToWishList } from "../redux/actions/games/addToWishList";
+import { addAlert } from "./assets/alert";
 
 const GameDetail = ({
   game,
@@ -14,6 +16,9 @@ const GameDetail = ({
   minimum_system_requirements,
 }) => {
   const dispatch = useDispatch();
+  const { wishList } = useSelector((state) => state.wishList);
+  const { uid } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
 
   const objectToSend = {
     id: game.id,
@@ -23,6 +28,9 @@ const GameDetail = ({
   };
 
   const addWishList = () => {
+    const exist = wishList.find((wishGame) => wishGame.id === objectToSend.id);
+    if (!uid) return navigate("/auth");
+    if (exist) return addAlert("It's already on your wishlist!", "error");
     dispatch(addToWishList(objectToSend));
   };
 
