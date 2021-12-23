@@ -7,8 +7,8 @@ const Login = () => {
   const dispatch = useDispatch();
 
   const [formLoginValues, handleLoginInput] = useForm({
-    logEmail: "nicojoaquin1998@gmail.com",
-    logPass: "nico1234",
+    logEmail: "",
+    logPass: "",
   });
 
   const { logEmail, logPass } = formLoginValues;
