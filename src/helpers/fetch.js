@@ -34,6 +34,12 @@ const fetchToken = (endpoint, data, method = 'get') => {
       headers
     })
 
+  } else if(method === 'put') {
+
+    return axios.put(url, data, {
+      headers
+    })
+
   } else {
 
     return axios({
