@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
-import gamesReducer from '../redux/gamesReducer';
-import wishReducer from '../redux/wishReducer';
-import uiReducer from '../redux/uiReducer';
-import authReducer from '../redux/authReducer';
+import gamesReducer from '../redux/reducers/gamesReducer';
+import wishReducer from '../redux/reducers/wishReducer';
+import uiReducer from '../redux/reducers/uiReducer';
+import authReducer from '../redux/reducers/authReducer';
 
 export const store = configureStore({
   reducer:{

@@ -1,10 +1,13 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "../../hooks/useForm";
 import { startLogin } from "../../redux/actions/auth/startLogin";
 
 const Login = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { uid, checkingLogin } = useSelector((state) => state.auth);
 
   const [formLoginValues, handleLoginInput] = useForm({
     logEmail: "",
@@ -16,6 +19,7 @@ const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     dispatch(startLogin(logEmail, logPass, "auth/login"));
+    !!uid && navigate(-1);
   };
 
   return (
@@ -45,7 +49,7 @@ const Login = () => {
         />
       </div>
       <button type="submit" className="btn btn-primary w-100">
-        Submit
+        {checkingLogin ? "Loading..." : "Submit"}
       </button>
     </form>
   );

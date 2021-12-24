@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { startLogout } from "../../redux/actions/auth/startLogout";
-import { setOpen } from "../../redux/uiReducer";
+import { setOpen } from "../../redux/reducers/uiReducer";
 
 const Logout = () => {
   const dispatch = useDispatch();

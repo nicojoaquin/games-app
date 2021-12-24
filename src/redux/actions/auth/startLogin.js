@@ -1,8 +1,10 @@
 import { fetcnNoToken } from '../../../helpers/fetch';
-import { setLogin } from '../../authReducer';
+import { setCheckingLogin, setLogin } from '../../reducers/authReducer';
 import { addAlert } from '../../../components/assets/alert';
 
 export const startLogin = (email, password, endpoint) => async (dispatch) => {
+
+  dispatch(setCheckingLogin(true));
 
   try {
 
@@ -16,19 +18,22 @@ export const startLogin = (email, password, endpoint) => async (dispatch) => {
     if(data.ok) {
       localStorage.setItem('token', data.token);
       localStorage.setItem('token-init-date', new Date().getTime());
-
+      
+      window.location.reload();
+      
       dispatch(setLogin({
         uid: data.uid,
         name: data.name
       }))
-      
+
+
     } 
 
     
   } catch (err) {
    addAlert(err.response.data.msg, "error")
   } finally{
-    window.location.reload();
+    dispatch(setCheckingLogin(false));
   }
 
 }

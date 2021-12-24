@@ -6,10 +6,10 @@ import {
   Route
 } from "react-router-dom"
 import { PrivateRoute } from './PrivateRoute';
-import Home from '../components/Home';
-import Header from '../components/Header';
-import Game from '../components/Game';
-import WishList from '../components/WishList';
+import Home from '../components/layout/Home';
+import Header from '../components/layout/Header';
+import Game from '../components/games/Game';
+import WishList from '../components/wishlist/WishList';
 import AuthContainer from '../components/auth/AuthContainer';
 import { startChecking } from '../redux/actions/auth/startChecking';
 import { getWishList } from '../redux/actions/games/getWishList';

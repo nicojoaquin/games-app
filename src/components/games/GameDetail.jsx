@@ -1,8 +1,8 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { addToWishList } from "../redux/actions/games/addToWishList";
-import { addAlert } from "./assets/alert";
+import { addToWishList } from "../../redux/actions/games/addToWishList";
+import { addAlert } from "../assets/alert";
 
 const GameDetail = ({
   game,
@@ -18,6 +18,7 @@ const GameDetail = ({
   const dispatch = useDispatch();
   const { wishList } = useSelector((state) => state.wishList);
   const { uid } = useSelector((state) => state.auth);
+  const { wishLoader } = useSelector((state) => state.ui);
   const navigate = useNavigate();
 
   const objectToSend = {
@@ -48,7 +49,7 @@ const GameDetail = ({
               className="btn btn-primary text-light"
               onClick={addWishList}
             >
-              Wishlist
+              {wishLoader ? "Loading..." : "Wishlist"}
             </button>
             <a
               href={game_url}

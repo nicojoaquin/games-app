@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 const WishListGame = ({
   game,
@@ -10,6 +11,10 @@ const WishListGame = ({
   handleSub,
   handleEdit,
 }) => {
+  const { wishDeleteLoader, wishUpdateLoader } = useSelector(
+    (state) => state.ui
+  );
+
   return (
     <div className="col-lg-4 col-xl-3 mb-4 gr">
       <div className="card bg-dark text-light rounded-3 shadow wish-card">
@@ -28,10 +33,14 @@ const WishListGame = ({
               className="btn btn-success ms-2 me-2"
               onClick={() => handleEdit(game)}
             >
-              Played
+              {wishUpdateLoader ? "Loading..." : "Played"}
             </button>
             <button className="btn btn-danger" onClick={() => handleSub(game)}>
-              Delete
+              {wishDeleteLoader
+                ? !played
+                  ? "Loading..."
+                  : "Delete"
+                : "Delete"}
             </button>
           </div>
         </div>
@@ -43,7 +52,7 @@ const WishListGame = ({
                 className="btn btn-danger mt-3"
                 onClick={() => handleSub(game)}
               >
-                Delete
+                {wishDeleteLoader ? "Loading..." : "Delete"}
               </button>
             </div>
           </div>

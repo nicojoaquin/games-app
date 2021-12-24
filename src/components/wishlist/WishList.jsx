@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { deleteWishGame } from "../redux/actions/games/deleteWishGame";
-import { getWishList } from "../redux/actions/games/getWishList";
-import { updateWishGame } from "../redux/actions/games/updateWishGame";
+import { deleteWishGame } from "../../redux/actions/games/deleteWishGame";
+import { getWishList } from "../../redux/actions/games/getWishList";
+import { updateWishGame } from "../../redux/actions/games/updateWishGame";
 import WishListGame from "./WishListGame";
 
 const WishList = () => {
@@ -16,9 +16,7 @@ const WishList = () => {
     dispatch(getWishList(uid));
   }, [dispatch, uid]);
 
-  const handleNavigate = (id) => {
-    navigate(`/game/${id}`);
-  };
+  const handleNavigate = (id) => navigate(`/game/${id}`);
 
   const handleSub = (game) => dispatch(deleteWishGame(game));
 
@@ -36,7 +34,7 @@ const WishList = () => {
             </h2>
           ) : (
             <h2 className="text-secondary text-center">
-              There is no game on your wishlist
+              There is no game on your wishlist, <Link to="/">add some</Link>
             </h2>
           )
         ) : (

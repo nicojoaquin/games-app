@@ -1,6 +1,6 @@
 import { fetchToken } from "../../../helpers/fetch"
-import { setLoader } from "../../uiReducer";
-import { setLoadWishList } from "../../wishReducer";
+import { setLoader } from "../../reducers/uiReducer";
+import { setLoadWishList } from "../../reducers/wishReducer";
 
 export const getWishList = (uid) => async (dispatch) => {
 

@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setSearch } from "../redux/gamesReducer";
-import { getGames } from "../redux/actions/games/getGames";
-import { setInput } from "../redux/uiReducer";
-import Games from "./Games";
+import { setSearch } from "../../redux/reducers/gamesReducer";
+import { getGames } from "../../redux/actions/games/getGames";
+import { setInput } from "../../redux/reducers/uiReducer";
+import Games from "../games/Games";
 
 const Home = () => {
   const dispatch = useDispatch();

@@ -1,5 +1,5 @@
 import { fetchToken } from '../../../helpers/fetch';
-import { setChecking, setLogin } from '../../authReducer';
+import { setLogin } from '../../reducers/authReducer';
 
 export const startChecking = (endpoint) => async (dispatch) => {
 
@@ -21,7 +21,7 @@ export const startChecking = (endpoint) => async (dispatch) => {
 
     
   } catch (err) {
-   dispatch(setChecking())
-  }
+   console.warn(err);
+  } 
 
 }

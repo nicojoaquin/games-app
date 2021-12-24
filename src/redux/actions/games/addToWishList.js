@@ -1,8 +1,11 @@
 import { addAlert } from "../../../components/assets/alert";
 import { fetchToken } from "../../../helpers/fetch"
-import { setWishList } from "../../wishReducer";
+import { setWishLoader } from "../../reducers/uiReducer";
+import { setWishList } from "../../reducers/wishReducer";
 
 export const addToWishList = (game) => async (dispatch) => {
+
+  dispatch(setWishLoader(true));
 
   try {
     
@@ -16,5 +19,7 @@ export const addToWishList = (game) => async (dispatch) => {
 
   } catch (err) {
     console.warn(err.response.data.msg);
+  } finally {
+    dispatch(setWishLoader(false));
   }
 };

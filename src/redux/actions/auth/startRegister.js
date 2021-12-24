@@ -1,8 +1,10 @@
 import { fetcnNoToken } from '../../../helpers/fetch';
-import { setLogin } from '../../authReducer';
+import {  setCheckingRegister, setLogin } from '../../reducers/authReducer';
 import { addAlert } from '../../../components/assets/alert';
 
 export const startRegister = (email, password, name, endpoint) => async (dispatch) => {
+
+  dispatch(setCheckingRegister(true));
 
   try {
 
@@ -18,6 +20,8 @@ export const startRegister = (email, password, name, endpoint) => async (dispatc
       localStorage.setItem('token', data.token);
       localStorage.setItem('token-init-date', new Date().getTime());
 
+      window.location.reload();
+
       dispatch(setLogin({
         uid: data.uid,
         name: data.name
@@ -28,7 +32,7 @@ export const startRegister = (email, password, name, endpoint) => async (dispatc
   } catch (err) {
    addAlert(err.response.data.msg, "error")
   } finally {
-    window.location.reload();
+    dispatch(setCheckingRegister(true));
   }
 
 }
