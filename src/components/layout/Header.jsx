@@ -7,17 +7,23 @@ const Header = () => {
   const { uid } = useSelector((state) => state.auth);
 
   return (
-    <nav className="navbar navbar-dark bg-dark">
+    <nav id="up" className="navbar navbar-dark container">
       <div className="container-fluid">
         <Link to="/" className="navbar-brand">
           Free Games App
         </Link>
         <div className="d-flex wish-logout">
-          <Link to="/wishlist" className="text-light text-decoration-none">
+          <Link
+            to="/wishlist"
+            className="text-light text-decoration-none wishlist"
+          >
             Wishlist
           </Link>
           {!uid ? (
-            <Link to="/auth" className="text-light text-decoration-none">
+            <Link
+              to="/auth"
+              className="text-light text-decoration-none user-sign"
+            >
               Sign in
             </Link>
           ) : (

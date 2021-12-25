@@ -5,6 +5,7 @@ import { getGames } from "../../redux/actions/games/getGames";
 import { setInput } from "../../redux/reducers/uiReducer";
 import Games from "../games/Games";
 import { Fade } from "react-awesome-reveal";
+import GoUpBtn from "./GoUpBtn";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -23,36 +24,43 @@ const Home = () => {
   };
 
   return (
-    <main className="container mt-4">
-      <div className="row p-3">
-        {loader ? (
-          <h1 className="text-light">Loading...</h1>
-        ) : (
-          <>
-            <Fade>
-              <input
-                type="text"
-                placeholder="Buscar..."
-                className="form-control mb-3"
-                onChange={handleInput}
-                value={inputValue}
-              />
-            </Fade>
-            {inputValue.length > 0 ? (
-              filteredGames.length === 0 ? (
-                <h2 className="text-danger text-center mt-3">Game not found</h2>
+    <>
+      <main className="container mt-4 position-relative">
+        <div className="row p-3">
+          {loader ? (
+            <h1 className="text-light">Loading...</h1>
+          ) : (
+            <>
+              <Fade>
+                <input
+                  type="text"
+                  placeholder="Buscar..."
+                  className="form-control mb-3"
+                  onChange={handleInput}
+                  value={inputValue}
+                />
+              </Fade>
+              {inputValue.length > 0 ? (
+                filteredGames.length === 0 ? (
+                  <h2 className="text-danger text-center mt-3">
+                    Game not found
+                  </h2>
+                ) : (
+                  filteredGames.map((game) => (
+                    <Games key={game.id} {...game} game={game} />
+                  ))
+                )
               ) : (
-                filteredGames.map((game) => (
+                games.map((game) => (
                   <Games key={game.id} {...game} game={game} />
                 ))
-              )
-            ) : (
-              games.map((game) => <Games key={game.id} {...game} game={game} />)
-            )}
-          </>
-        )}
-      </div>
-    </main>
+              )}
+            </>
+          )}
+        </div>
+      </main>
+      <GoUpBtn />
+    </>
   );
 };
 

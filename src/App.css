@@ -14,8 +14,36 @@ body {
   );
 }
 
+.navbar-brand {
+  transition: color 0.2s;
+}
+
+.wishlist {
+  transition: color 0.2s;
+}
+
+.user-sign {
+  transition: color 0.2s;
+}
+
+.navbar-brand:hover {
+  color: rgb(190, 190, 190) !important;
+  transition: color 0.2s;
+}
+
+.wishlist:hover {
+  color: rgb(190, 190, 190) !important;
+  transition: color 0.2s;
+}
+
+.user-sign:hover {
+  color: rgb(190, 190, 190) !important;
+  transition: color 0.2s;
+}
+
 .wish-logout {
   gap: 1rem;
+  z-index: 1000;
 }
 
 .img-detail {
@@ -53,6 +81,7 @@ body {
   position: absolute;
   top: 3.5rem;
   right: 0rem;
+  border-radius: 5px;
 }
 
 .new-card {
@@ -67,6 +96,20 @@ body {
 
 .played {
   z-index: 1000;
+}
+
+.go-up {
+  bottom: 20px;
+  right: 6%;
+}
+
+.go-up a i {
+  transition: color 0.2s;
+}
+
+.go-up a i:hover {
+  color: rgb(173, 173, 177) !important;
+  transition: color 0.2s;
 }
 
 @media screen and (max-width: 700px) {

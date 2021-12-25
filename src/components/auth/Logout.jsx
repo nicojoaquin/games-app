@@ -15,11 +15,11 @@ const Logout = () => {
   return (
     <>
       <div className="text-light d-flex flex-column overflow-hidden pointer user-name">
-        <span role="button" onClick={btnOpen}>
+        <span role="button" onClick={btnOpen} className="user-sign">
           {name}
         </span>
         <div
-          className="bg-dark p-1 logOut"
+          className="bg-dark p-3 logOut shadow-lg"
           style={{ display: open && "block" }}
         >
           <button onClick={handleLogout} className=" btn text-light">
