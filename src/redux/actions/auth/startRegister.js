@@ -22,8 +22,6 @@ export const startRegister = (email, password, name, endpoint) => async (dispatc
       localStorage.setItem('token', data.token);
       localStorage.setItem('token-init-date', new Date().getTime());
 
-      window.location.reload();
-
       dispatch(setLogin({
         uid: data.uid,
         name: data.name

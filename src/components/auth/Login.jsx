@@ -19,6 +19,7 @@ const Login = () => {
     e.preventDefault();
     dispatch(startLogin(logEmail, logPass, "auth/login"));
     !!uid && navigate(-1);
+    window.location.reload();
   };
 
   return (

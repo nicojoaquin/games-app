@@ -22,8 +22,6 @@ export const startLogin = (email, password, endpoint) => async (dispatch) => {
       localStorage.setItem('token', data.token);
       localStorage.setItem('token-init-date', new Date().getTime());
       
-      window.location.reload();
-      
       dispatch(setLogin({
         uid: data.uid,
         name: data.name

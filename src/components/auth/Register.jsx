@@ -26,6 +26,7 @@ const Register = () => {
 
     dispatch(startRegister(regEmail, regPass1, regName, "auth/new"));
     !!uid && navigate(-1);
+    window.location.reload();
   };
 
   return (
