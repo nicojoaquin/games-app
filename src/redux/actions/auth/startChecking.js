@@ -12,8 +12,8 @@ export const startChecking = (endpoint) => async (dispatch) => {
     const data = await res.data;
     
     if(data.ok) {
-      localStorage.setItem('token', data.token);
-      localStorage.setItem('token-init-date', new Date().getTime());
+      sessionStorage.setItem('token', data.token);
+      sessionStorage.setItem('token-init-date', new Date().getTime());
 
       dispatch(setLogin({
         uid: data.uid,
