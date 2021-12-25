@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { deleteWishGame } from "../../redux/actions/games/deleteWishGame";
 import { getWishList } from "../../redux/actions/games/getWishList";
 import { updateWishGame } from "../../redux/actions/games/updateWishGame";
-import { setInput, setLoader } from "../../redux/reducers/uiReducer";
+import { setInput } from "../../redux/reducers/uiReducer";
 import Games from "../games/Games";
 import { Fade } from "react-awesome-reveal";
 
@@ -19,9 +19,6 @@ const WishList = () => {
   useEffect(() => {
     dispatch(setInput(""));
     dispatch(getWishList(uid, "events"));
-    setTimeout(() => {
-      dispatch(setLoader(false));
-    }, 1100);
   }, [dispatch, uid]);
 
   const handleSub = (game) => dispatch(deleteWishGame(game));

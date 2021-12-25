@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const headersToken = {
-  'x-token': sessionStorage.getItem('token')
+  'x-token': localStorage.getItem('token')
 }
 
 const fetcnNoToken = (url, data, method = 'get', headers) => {

@@ -42,6 +42,10 @@ export const getGame = (api) => async (dispatch) => {
 
   } catch (err) {
     console.log(err);
+  } finally{
+    setTimeout(() => {
+      dispatch(setLoader(false));
+    }, 1100);
   }
 
 }

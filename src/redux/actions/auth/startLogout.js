@@ -1,4 +1,4 @@
 export const startLogout = () => () => {
-  sessionStorage.clear();
+  localStorage.clear();
   window.location.reload();
 };
