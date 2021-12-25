@@ -15,10 +15,10 @@ const GameDetail = ({
   minimum_system_requirements,
 }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { wishList } = useSelector((state) => state.wishList);
   const { wishLoader } = useSelector((state) => state.ui);
   const { uid } = useSelector((state) => state.auth);
-  const navigate = useNavigate();
 
   const objectToSend = {
     id: game.id,
@@ -31,7 +31,7 @@ const GameDetail = ({
     const exist = wishList.find((wishGame) => wishGame.id === objectToSend.id);
     if (!uid) return navigate("/auth");
     else if (exist) return addAlert("It's already on your wishlist!", "error");
-    else dispatch(addToWishList(objectToSend));
+    else dispatch(addToWishList(objectToSend, "events"));
   };
 
   return (
@@ -57,6 +57,12 @@ const GameDetail = ({
             >
               Play game
             </a>
+            <button
+              className="btn btn-secondary ms-3 text-light"
+              onClick={() => navigate(-1)}
+            >
+              Return
+            </button>
           </div>
         </div>
         <div className="d-flex flex-column p-5 text-center">

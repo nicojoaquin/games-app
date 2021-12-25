@@ -3,13 +3,17 @@ import { setWishLoader } from "../../reducers/uiReducer";
 import { setWishList } from "../../reducers/wishReducer";
 import { addAlert } from "../../../components/assets/alert";
 
-export const addToWishList = (game) => async (dispatch) => {
+export const addToWishList = (game, endpoint) => async (dispatch) => {
+
+  
+  const url = `${process.env.REACT_APP_API_URL}/${endpoint}`;
+
 
   dispatch(setWishLoader(true));
 
   try {
     
-    const res = await fetchToken('events', game, 'post');
+    const res = await fetchToken(url, game, 'post');
     const data = await res.data;
 
     if(data.ok) {  
@@ -18,7 +22,7 @@ export const addToWishList = (game) => async (dispatch) => {
     };
 
   } catch (err) {
-    console.warn(err.response.data.msg);
+    console.warn(err.response?.data.msg);
   } finally {
     dispatch(setWishLoader(false));
   }

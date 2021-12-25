@@ -16,7 +16,6 @@ const Home = () => {
       getGames("https://free-to-play-games-database.p.rapidapi.com/api/games")
     );
   }, [dispatch]);
-  console.log(games[300]);
 
   const handleInput = ({ target }) => {
     dispatch(setInput(target.value));

@@ -5,10 +5,12 @@ import { setDeleteWishList } from "../../reducers/wishReducer";
 
 export const deleteWishGame = (game) => async (dispatch) => {
 
+  const url = `${process.env.REACT_APP_API_URL}/events/${game._id}`;
+
   dispatch(setWishDeleteLoader(true));
 
   try {
-    const res = await fetchToken(`events/${game._id}`, {}, 'delete')
+    const res = await fetchToken(url, {}, 'delete')
     const data = await res.data;
     
     if(data.ok) {

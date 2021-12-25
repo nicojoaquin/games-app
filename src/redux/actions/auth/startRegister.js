@@ -4,11 +4,13 @@ import { addAlert } from '../../../components/assets/alert';
 
 export const startRegister = (email, password, name, endpoint) => async (dispatch) => {
 
+  const url = `${process.env.REACT_APP_API_URL}/${endpoint}`;
+
   dispatch(setCheckingRegister(true));
 
   try {
 
-    const res = await fetcnNoToken(endpoint, {
+    const res = await fetcnNoToken(url, {
       email,
       password,
       name

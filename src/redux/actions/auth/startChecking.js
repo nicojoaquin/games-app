@@ -3,9 +3,11 @@ import { setLogin } from '../../reducers/authReducer';
 
 export const startChecking = (endpoint) => async (dispatch) => {
 
+  const url = `${process.env.REACT_APP_API_URL}/${endpoint}`;
+
   try {
 
-    const res = await fetchToken(endpoint)
+    const res = await fetchToken(url)
     
     const data = await res.data;
     

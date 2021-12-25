@@ -1,16 +1,15 @@
 import axios from "axios";
 
-const headers = {
+const headersToken = {
   'x-token': localStorage.getItem('token')
 }
 
-const fetcnNoToken = (endpoint, data, method = 'get') => {
+const fetcnNoToken = (url, data, method = 'get', headers) => {
   
-  const url = `${process.env.REACT_APP_API_URL}/${endpoint}`;
 
   if(method === 'get') {
 
-    return axios.get(url)
+    return axios.get(url, headers)
 
   } else {
 
@@ -24,20 +23,18 @@ const fetcnNoToken = (endpoint, data, method = 'get') => {
 
 }
 
-const fetchToken = (endpoint, data, method = 'get') => {
-
-  const url = `${process.env.REACT_APP_API_URL}/${endpoint}`;
+const fetchToken = (url, data, method = 'get') => {
 
   if(method === 'get') {
     
     return axios.get(url, {
-      headers
+      headers: headersToken
     })
 
   } else if(method === 'put') {
 
     return axios.put(url, data, {
-      headers
+      headers: headersToken
     })
 
   } else {
@@ -46,7 +43,7 @@ const fetchToken = (endpoint, data, method = 'get') => {
       method,
       url,
       data,
-      headers
+      headers: headersToken
     });
 
   }

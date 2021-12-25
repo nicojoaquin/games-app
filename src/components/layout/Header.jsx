@@ -10,7 +10,7 @@ const Header = () => {
     <nav className="navbar navbar-dark bg-dark">
       <div className="container-fluid">
         <Link to="/" className="navbar-brand">
-          Games App
+          Free Games App
         </Link>
         <div className="d-flex wish-logout">
           <Link to="/wishlist" className="text-light text-decoration-none">

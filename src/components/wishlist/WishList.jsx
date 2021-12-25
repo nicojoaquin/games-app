@@ -18,7 +18,7 @@ const WishList = () => {
 
   useEffect(() => {
     dispatch(setInput(""));
-    dispatch(getWishList(uid));
+    dispatch(getWishList(uid, "events"));
     setTimeout(() => {
       dispatch(setLoader(false));
     }, 1100);
@@ -35,7 +35,7 @@ const WishList = () => {
   return (
     <Fade>
       <section className="container mt-4">
-        <h1 className="text-light text-center mb-3">Wish List</h1>
+        <h1 className="text-light text-center mb-3">Wishlist</h1>
         <hr className="bg-light" />
         <div className="row p-3">
           {wishList.length === 0 ? (
@@ -45,7 +45,7 @@ const WishList = () => {
               </h2>
             ) : (
               <h2 className="text-secondary text-center">
-                There is no game on your wishlist, <Link to="/">add some</Link>
+                There is no game on your wishlist, <Link to="/">add some</Link>!
               </h2>
             )
           ) : (

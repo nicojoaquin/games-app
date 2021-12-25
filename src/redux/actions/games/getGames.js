@@ -1,4 +1,4 @@
-import axios from 'axios'
+import { fetcnNoToken } from '../../../helpers/fetch';
 import { setGame, setGamesList } from "../../reducers/gamesReducer";
 import { setLoader } from "../../reducers/uiReducer";
 
@@ -11,11 +11,11 @@ const options = {
 
 export const getGames = (api) => async (dispatch) => {
     
+  dispatch(setLoader(true))
+
   try{
 
-    dispatch(setLoader(true))
-
-    const res = await axios.get(api, options);
+    const res = await fetcnNoToken(api, {}, 'get', options);
     const data = await res.data;
     dispatch(setGamesList(data))  
 
@@ -35,8 +35,8 @@ export const getGame = (api) => async (dispatch) => {
 
   try {
 
-    const res = await axios.get(api, options)
-    const data = await res.data
+    const res = await fetcnNoToken(api, {}, 'get', options);
+    const data = await res.data;
 
     dispatch(setGame(data))
 
