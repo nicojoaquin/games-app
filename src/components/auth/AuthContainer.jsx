@@ -1,13 +1,15 @@
-import React from "react";
 import Login from "./Login";
 import Register from "./Register";
+import { Fade } from "react-awesome-reveal";
 
 const AuthContainer = () => {
   return (
-    <main className="auth-container" style={{ minHeight: "100vh" }}>
-      <Login />
-      <Register />
-    </main>
+    <Fade>
+      <main className="auth-container" style={{ minHeight: "100vh" }}>
+        <Login />
+        <Register />
+      </main>
+    </Fade>
   );
 };
 

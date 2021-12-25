@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setSearch } from "../../redux/reducers/gamesReducer";
 import { getGames } from "../../redux/actions/games/getGames";
 import { setInput } from "../../redux/reducers/uiReducer";
 import Games from "../games/Games";
+import { Fade } from "react-awesome-reveal";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -15,6 +16,7 @@ const Home = () => {
       getGames("https://free-to-play-games-database.p.rapidapi.com/api/games")
     );
   }, [dispatch]);
+  console.log(games[300]);
 
   const handleInput = ({ target }) => {
     dispatch(setInput(target.value));
@@ -28,7 +30,7 @@ const Home = () => {
           <h1 className="text-light">Loading...</h1>
         ) : (
           <>
-            <div>
+            <Fade>
               <input
                 type="text"
                 placeholder="Buscar..."
@@ -36,7 +38,7 @@ const Home = () => {
                 onChange={handleInput}
                 value={inputValue}
               />
-            </div>
+            </Fade>
             {inputValue.length > 0 ? (
               filteredGames.length === 0 ? (
                 <h2 className="text-danger text-center mt-3">Game not found</h2>

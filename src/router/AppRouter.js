@@ -6,8 +6,8 @@ import {
   Route
 } from "react-router-dom"
 import { PrivateRoute } from './PrivateRoute';
-import Home from '../components/layout/Home';
 import Header from '../components/layout/Header';
+import Home from '../components/layout/Home';
 import Game from '../components/games/Game';
 import WishList from '../components/wishlist/WishList';
 import AuthContainer from '../components/auth/AuthContainer';
@@ -31,8 +31,8 @@ const AppRouter = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Home/>} />
-        <Route path="/wishlist" element={<WishList/>} />
         <Route path="/game/:gameId" element={<Game/>} />
+        <Route path="/wishlist" element={<WishList/>} />
         <Route path="/auth" element={
           <PrivateRoute>
             <AuthContainer />

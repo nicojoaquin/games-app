@@ -31,9 +31,9 @@ export const getGames = (api) => async (dispatch) => {
 
 export const getGame = (api) => async (dispatch) => {
 
-  try {
+  dispatch(setLoader(true))
 
-    dispatch(setLoader(true))
+  try {
 
     const res = await axios.get(api, options)
     const data = await res.data
@@ -42,9 +42,6 @@ export const getGame = (api) => async (dispatch) => {
 
   } catch (err) {
     console.log(err);
-  }
-  finally {
-    dispatch(setLoader(false))
   }
 
 }

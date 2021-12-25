@@ -17,8 +17,6 @@ export const getWishList = (uid) => async (dispatch) => {
     
   } catch (err) {
     console.warn(err);
-  } finally {
-    dispatch(setLoader(false));
-  }
+  } 
 
 }

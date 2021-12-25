@@ -1,6 +1,4 @@
-export const startLogout = () => (dispatch) => {
-
+export const startLogout = () => () => {
   localStorage.clear();
   window.location.reload();
-  
 };

@@ -1,7 +1,7 @@
-import { addAlert } from "../../../components/assets/alert";
 import { fetchToken } from "../../../helpers/fetch"
 import { setWishLoader } from "../../reducers/uiReducer";
 import { setWishList } from "../../reducers/wishReducer";
+import { addAlert } from "../../../components/assets/alert";
 
 export const addToWishList = (game) => async (dispatch) => {
 
