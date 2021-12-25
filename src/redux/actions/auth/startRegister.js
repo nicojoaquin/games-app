@@ -21,11 +21,13 @@ export const startRegister = (email, password, name, endpoint) => async (dispatc
     if(data.ok) {
       localStorage.setItem('token', data.token);
       localStorage.setItem('token-init-date', new Date().getTime());
-
+  
       dispatch(setLogin({
         uid: data.uid,
         name: data.name
       }));
+      
+      window.location.reload();
     } 
 
     

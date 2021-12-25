@@ -3,8 +3,7 @@ import { setCheckingLogin, setLogin } from '../../reducers/authReducer';
 import { addAlert } from '../../../components/assets/alert';
 
 export const startLogin = (email, password, endpoint) => async (dispatch) => {
-
-  
+ 
   const url = `${process.env.REACT_APP_API_URL}/${endpoint}`;
 
   dispatch(setCheckingLogin(true));
@@ -21,15 +20,15 @@ export const startLogin = (email, password, endpoint) => async (dispatch) => {
     if(data.ok) {
       localStorage.setItem('token', data.token);
       localStorage.setItem('token-init-date', new Date().getTime());
-      
+
       dispatch(setLogin({
         uid: data.uid,
         name: data.name
-      }))
+      }));
 
+      window.location.reload();
 
-    } 
-
+    }
     
   } catch (err) {
    addAlert(err.response.data.msg, "error")
