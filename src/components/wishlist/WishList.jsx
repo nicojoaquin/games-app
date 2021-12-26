@@ -9,9 +9,9 @@ import Games from "../games/Games";
 import { Fade } from "react-awesome-reveal";
 
 const WishList = () => {
-  const { wishList } = useSelector((state) => state.wishList);
+  const { wishList, wishListLoader } = useSelector((state) => state.wishList);
   const { uid } = useSelector((state) => state.auth);
-  const { loader, wishDeleteLoader, wishUpdateLoader } = useSelector(
+  const { wishDeleteLoader, wishUpdateLoader } = useSelector(
     (state) => state.ui
   );
   const dispatch = useDispatch();
@@ -25,8 +25,8 @@ const WishList = () => {
 
   const handleEdit = (game) => dispatch(updateWishGame(game));
 
-  if (loader) {
-    return <h1>Loading...</h1>;
+  if (wishListLoader) {
+    return <h1 className="text-light">Loading...</h1>;
   }
 
   return (

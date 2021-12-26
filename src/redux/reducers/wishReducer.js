@@ -4,6 +4,7 @@ export const wishSlice = createSlice({
   name: "wishList",
   initialState: {
     wishList: [],
+    wishListLoader: false
   },
   reducers: {
    setWishList: (state, action) => {
@@ -17,10 +18,13 @@ export const wishSlice = createSlice({
    },
    setDeleteWishList: (state, action) => {
      state.wishList = state.wishList.filter( game => game.id !== action.payload);
+   },
+   setWishListLoader: (state,action) => {
+     state.wishListLoader = action.payload;
    }
   }
 });
 
-export const {setWishList, setLoadWishList, setUpdateWishList, setDeleteWishList} = wishSlice.actions; 
+export const {setWishList, setLoadWishList, setUpdateWishList, setDeleteWishList, setWishListLoader} = wishSlice.actions; 
 
 export default wishSlice.reducer;

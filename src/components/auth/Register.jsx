@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { useForm } from "../../hooks/useForm";
 import { startRegister } from "../../redux/actions/auth/startRegister";
 import { addAlert } from "../assets/alert";

@@ -10,10 +10,9 @@ const options = {
 }
 
 export const getGames = (api) => async (dispatch) => {
-    
-  dispatch(setLoader(true))
-
+  
   try{
+    dispatch(setLoader(true))
 
     const res = await fetcnNoToken(api, {}, 'get', options);
     const data = await res.data;
@@ -24,16 +23,15 @@ export const getGames = (api) => async (dispatch) => {
     console.warn(err);
   }
   finally {
-    dispatch(setLoader(false))
+    dispatch(setLoader(false));
   }
 
 }
 
 export const getGame = (api) => async (dispatch) => {
 
-  dispatch(setLoader(true))
-
   try {
+    dispatch(setLoader(true))
 
     const res = await fetcnNoToken(api, {}, 'get', options);
     const data = await res.data;

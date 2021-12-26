@@ -1,12 +1,11 @@
 import { fetchToken } from "../../../helpers/fetch"
-import { setLoader } from "../../reducers/uiReducer";
-import { setLoadWishList } from "../../reducers/wishReducer";
+import { setLoadWishList, setWishListLoader } from "../../reducers/wishReducer";
 
 export const getWishList = (uid, endpoint) => async (dispatch) => {
 
   const url = `${process.env.REACT_APP_API_URL}/${endpoint}`;
 
-  dispatch(setLoader(true));
+  dispatch(setWishListLoader(true));
   
   try {
 
@@ -21,7 +20,7 @@ export const getWishList = (uid, endpoint) => async (dispatch) => {
     console.warn(err);
   } finally{
     setTimeout(() => {
-      dispatch(setLoader(false))
+      dispatch(setWishListLoader(false))
     }, 1100);
   }
 
