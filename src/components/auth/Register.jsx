@@ -6,8 +6,8 @@ import { addAlert } from "../assets/alert";
 
 const Register = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const { uid, CheckingRegister } = useSelector((state) => state.auth);
+
+  const { CheckingRegister } = useSelector((state) => state.auth);
 
   const [formRegisterValues, handleRegisterInput] = useForm({
     regName: "",
@@ -25,7 +25,6 @@ const Register = () => {
       return addAlert("Passwords do not match", "error");
 
     dispatch(startRegister(regEmail, regPass1, regName, "auth/new"));
-    !!uid && navigate(-1);
   };
 
   return (

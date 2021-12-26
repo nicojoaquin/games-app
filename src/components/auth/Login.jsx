@@ -5,8 +5,8 @@ import { startLogin } from "../../redux/actions/auth/startLogin";
 
 const Login = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const { uid, checkingLogin } = useSelector((state) => state.auth);
+
+  const { checkingLogin } = useSelector((state) => state.auth);
 
   const [formLoginValues, handleLoginInput] = useForm({
     logEmail: "",
@@ -18,7 +18,6 @@ const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     dispatch(startLogin(logEmail, logPass, "auth/login"));
-    !!uid && navigate(-1);
   };
 
   return (
