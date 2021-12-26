@@ -32,9 +32,9 @@ export const startRegister = (email, password, name, endpoint) => async (dispatc
 
     
   } catch (err) {
-   addAlert(err.response.data.msg, "error")
+      addAlert(err.response.data.msg, "error")
   } finally {
-    dispatch(setCheckingRegister(true));
+      dispatch(setCheckingRegister(true));
   }
 
 }

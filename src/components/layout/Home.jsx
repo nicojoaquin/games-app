@@ -4,8 +4,8 @@ import { setSearch } from "../../redux/reducers/gamesReducer";
 import { getGames } from "../../redux/actions/games/getGames";
 import { setInput } from "../../redux/reducers/uiReducer";
 import Games from "../games/Games";
-import { Fade } from "react-awesome-reveal";
 import GoUpBtn from "./GoUpBtn";
+import { Fade } from "react-awesome-reveal";
 import GamesLoader from "../assets/loaders/GamesLoader";
 
 const Home = () => {

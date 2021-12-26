@@ -1,15 +1,15 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { deleteWishGame } from "../../redux/actions/games/deleteWishGame";
 import { getWishList } from "../../redux/actions/games/getWishList";
 import { updateWishGame } from "../../redux/actions/games/updateWishGame";
+import { deleteWishGame } from "../../redux/actions/games/deleteWishGame";
 import { setInput } from "../../redux/reducers/uiReducer";
+import { setGamesList } from "../../redux/reducers/gamesReducer";
 import Games from "../games/Games";
 import { Fade } from "react-awesome-reveal";
 import GamesLoader from "../assets/loaders/GamesLoader";
 import ButtonsLoader from "../assets/loaders/ButtonsLoader";
-import { setGamesList } from "../../redux/reducers/gamesReducer";
 
 const WishList = () => {
   const { wishList, wishListLoader } = useSelector((state) => state.wishList);

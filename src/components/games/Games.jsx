@@ -1,4 +1,3 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
 import ButtonsLoader from "../assets/loaders/ButtonsLoader";

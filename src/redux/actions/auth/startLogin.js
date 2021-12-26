@@ -31,9 +31,9 @@ export const startLogin = (email, password, endpoint) => async (dispatch) => {
     }
     
   } catch (err) {
-   addAlert(err.response.data.msg, "error")
+      addAlert(err.response.data.msg, "error")
   } finally{
-    dispatch(setCheckingLogin(false));
+      dispatch(setCheckingLogin(false));
   }
 
 }
