@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addToWishList } from "../../redux/actions/games/addToWishList";
 import { addAlert } from "../assets/alert";
+import ButtonsLoader from "../assets/loaders/ButtonsLoader";
 
 const GameDetail = ({
   game,
@@ -48,7 +49,7 @@ const GameDetail = ({
               className="btn btn-primary text-light"
               onClick={addWishList}
             >
-              {wishLoader ? "Loading..." : "Wishlist"}
+              {wishLoader ? <ButtonsLoader /> : "Wishlist"}
             </button>
             <a
               href={game_url}

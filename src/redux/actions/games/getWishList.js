@@ -18,10 +18,11 @@ export const getWishList = (uid, endpoint) => async (dispatch) => {
     
   } catch (err) {
     console.warn(err);
+    
   } finally{
     setTimeout(() => {
       dispatch(setWishListLoader(false))
-    }, 1100);
+    }, 800);
   }
 
 }

@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "../../hooks/useForm";
 import { startLogin } from "../../redux/actions/auth/startLogin";
+import ButtonsLoader from "../assets/loaders/ButtonsLoader";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -46,7 +47,7 @@ const Login = () => {
         />
       </div>
       <button type="submit" className="btn btn-primary w-100">
-        {checkingLogin ? "Loading..." : "Submit"}
+        {checkingLogin ? <ButtonsLoader /> : "Submit"}
       </button>
     </form>
   );

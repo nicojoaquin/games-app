@@ -26,6 +26,7 @@ const AppRouter = () => {
 
   }, [dispatch, uid])
 
+
   return (
     <Router>
       <Header />

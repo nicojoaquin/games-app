@@ -23,7 +23,9 @@ export const getGames = (api) => async (dispatch) => {
     console.warn(err);
   }
   finally {
-    dispatch(setLoader(false));
+    setTimeout(() => {
+      dispatch(setLoader(false));
+    }, 800);
   }
 
 }
@@ -43,7 +45,7 @@ export const getGame = (api) => async (dispatch) => {
   } finally{
     setTimeout(() => {
       dispatch(setLoader(false));
-    }, 1100);
+    }, 800);
   }
 
 }

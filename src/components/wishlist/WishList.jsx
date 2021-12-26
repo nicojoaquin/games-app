@@ -7,6 +7,9 @@ import { updateWishGame } from "../../redux/actions/games/updateWishGame";
 import { setInput } from "../../redux/reducers/uiReducer";
 import Games from "../games/Games";
 import { Fade } from "react-awesome-reveal";
+import GamesLoader from "../assets/loaders/GamesLoader";
+import ButtonsLoader from "../assets/loaders/ButtonsLoader";
+import { setGamesList } from "../../redux/reducers/gamesReducer";
 
 const WishList = () => {
   const { wishList, wishListLoader } = useSelector((state) => state.wishList);
@@ -21,12 +24,16 @@ const WishList = () => {
     dispatch(getWishList(uid, "events"));
   }, [dispatch, uid]);
 
+  useEffect(() => {
+    dispatch(setGamesList([]));
+  }, [dispatch]);
+
   const handleSub = (game) => dispatch(deleteWishGame(game));
 
   const handleEdit = (game) => dispatch(updateWishGame(game));
 
   if (wishListLoader) {
-    return <h1 className="text-light">Loading...</h1>;
+    return <GamesLoader />;
   }
 
   return (
@@ -60,17 +67,21 @@ const WishList = () => {
                     className="btn btn-success ms-2 me-2"
                     onClick={() => handleEdit(wishGame)}
                   >
-                    {wishUpdateLoader ? "Loading..." : "Played"}
+                    {wishUpdateLoader ? <ButtonsLoader /> : "Played"}
                   </button>
                   <button
                     className="btn btn-danger"
                     onClick={() => handleSub(wishGame)}
                   >
-                    {wishDeleteLoader
-                      ? !wishGame.played
-                        ? "Loading..."
-                        : "Delete"
-                      : "Delete"}
+                    {wishDeleteLoader ? (
+                      !wishGame.played ? (
+                        <ButtonsLoader />
+                      ) : (
+                        "Delete"
+                      )
+                    ) : (
+                      "Delete"
+                    )}
                   </button>
                 </>
               </Games>

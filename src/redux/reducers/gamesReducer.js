@@ -14,6 +14,8 @@ export const gamesSlice = createSlice({
    },
    setGame: (state, action) => {
      state.game = action.payload;
+     state.list = [];
+     state.filteredGames = [];
    },
    setSearch: (state, action) => {
      state.filteredGames = state.list.filter( game => game.title.toLowerCase().includes(action.payload.trim().toLowerCase()));

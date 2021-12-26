@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "../../hooks/useForm";
 import { startRegister } from "../../redux/actions/auth/startRegister";
 import { addAlert } from "../assets/alert";
+import ButtonsLoader from "../assets/loaders/ButtonsLoader";
 
 const Register = () => {
   const dispatch = useDispatch();
@@ -70,7 +71,7 @@ const Register = () => {
         />
       </div>
       <button type="submit" className="btn btn-primary w-100">
-        {CheckingRegister ? "Loading..." : "Submit"}
+        {CheckingRegister ? <ButtonsLoader /> : "Submit"}
       </button>
     </form>
   );

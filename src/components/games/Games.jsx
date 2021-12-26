@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
+import ButtonsLoader from "../assets/loaders/ButtonsLoader";
 
 const Games = ({
   children,
@@ -15,9 +16,7 @@ const Games = ({
 }) => {
   const navigate = useNavigate();
 
-  const handleNavigate = () => {
-    navigate(`/game/${id}q=${title.toLowerCase()}`);
-  };
+  const handleNavigate = () => navigate(`/game/${id}q=${title.toLowerCase()}`);
 
   return (
     <div className="col-lg-3 col-md-4 mb-4">
@@ -45,7 +44,7 @@ const Games = ({
                   className="btn btn-danger mt-3"
                   onClick={() => handleSub(wishGame)}
                 >
-                  {wishDeleteLoader ? "Loading..." : "Delete"}
+                  {wishDeleteLoader ? <ButtonsLoader /> : "Delete"}
                 </button>
               </div>
             </div>

@@ -5,33 +5,38 @@ import Logout from "../auth/Logout";
 
 const Header = () => {
   const { uid } = useSelector((state) => state.auth);
+  const { loader } = useSelector((state) => state.ui);
+  const { wishListLoader } = useSelector((state) => state.wishList);
 
   return (
-    <nav id="up" className="navbar navbar-dark container">
-      <div className="container-fluid">
-        <Link to="/" className="navbar-brand">
-          Free Games App
-        </Link>
-        <div className="d-flex wish-logout">
-          <Link
-            to="/wishlist"
-            className="text-light text-decoration-none wishlist"
-          >
-            Wishlist
+    !loader &&
+    !wishListLoader && (
+      <nav id="up" className="navbar navbar-dark container">
+        <div className="container-fluid">
+          <Link to="/" className="navbar-brand">
+            Free Games App
           </Link>
-          {!uid ? (
+          <div className="d-flex wish-logout">
             <Link
-              to="/auth"
-              className="text-light text-decoration-none user-sign"
+              to="/wishlist"
+              className="text-light text-decoration-none wishlist"
             >
-              Sign in
+              Wishlist
             </Link>
-          ) : (
-            <Logout />
-          )}
+            {!uid ? (
+              <Link
+                to="/auth"
+                className="text-light text-decoration-none user-sign"
+              >
+                Sign in
+              </Link>
+            ) : (
+              <Logout />
+            )}
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    )
   );
 };
 

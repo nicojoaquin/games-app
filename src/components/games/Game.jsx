@@ -5,6 +5,7 @@ import { getGame } from "../../redux/actions/games/getGames";
 import { setInput } from "../../redux/reducers/uiReducer";
 import GameDetail from "./GameDetail";
 import { Fade } from "react-awesome-reveal";
+import GamesLoader from "../assets/loaders/GamesLoader";
 
 const Game = () => {
   const dispatch = useDispatch();
@@ -22,7 +23,7 @@ const Game = () => {
   }, [dispatch, gameId]);
 
   return loader ? (
-    <h1 className="text-light">Loading...</h1>
+    <GamesLoader />
   ) : (
     <Fade>
       <GameDetail key={game.id} {...game} game={game} />
