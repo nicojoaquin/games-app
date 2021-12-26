@@ -7,7 +7,7 @@ export const wishSlice = createSlice({
   },
   reducers: {
    setWishList: (state, action) => {
-    state.wishList = [action.payload, ...state.wishList];
+    state.wishList = [...state.wishList, action.payload];
    },
    setLoadWishList: (state, action) => {
     state.wishList = action.payload;
