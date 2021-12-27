@@ -20,11 +20,8 @@ const WishList = () => {
 
   useEffect(() => {
     dispatch(setInput(""));
-  }, [dispatch, uid]);
-
-  useEffect(() => {
     dispatch(setGamesList([]));
-  }, [dispatch]);
+  }, [dispatch, uid]);
 
   const handleSub = (game) => dispatch(deleteWishGame(game));
 

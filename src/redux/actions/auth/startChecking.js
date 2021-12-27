@@ -11,16 +11,13 @@ export const startChecking = (endpoint) => async (dispatch) => {
     
     const data = await res.data;
     
-    if(data.ok) {
-      localStorage.setItem('token', data.token);
-      localStorage.setItem('token-init-date', new Date().getTime());
+    localStorage.setItem('token', data.token);
+    localStorage.setItem('token-init-date', new Date().getTime());
 
-      dispatch(setLogin({
-        uid: data.uid,
-        name: data.name
-      }));
-    } 
-
+    dispatch(setLogin({
+      uid: data.uid,
+      name: data.name
+    }));
     
   } catch (err) {
    console.clear();

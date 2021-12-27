@@ -20,6 +20,7 @@ export const updateWishGame = (game) => async (dispatch) => {
     
   } catch (err) {
     console.warn(err);
+    
   } finally {
     dispatch(setWishUpdateLoader(false));
   }

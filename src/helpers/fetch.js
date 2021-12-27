@@ -1,12 +1,7 @@
 import axios from "axios";
 
-const headersToken = {
-  'x-token': localStorage.getItem('token')
-}
-
 const fetcnNoToken = (url, data, method = 'get', headers) => {
   
-
   if(method === 'get') {
 
     return axios.get(url, headers)
@@ -24,6 +19,10 @@ const fetcnNoToken = (url, data, method = 'get', headers) => {
 }
 
 const fetchToken = (url, data, method = 'get') => {
+
+  const headersToken = {
+    'x-token': localStorage.getItem('token')
+  }
 
   if(method === 'get') {
     

@@ -16,19 +16,15 @@ export const startLogin = (email, password, endpoint) => async (dispatch) => {
     }, 'post')
 
     const data = await res.data;
-    
-    if(data.ok) {
-      localStorage.setItem('token', data.token);
-      localStorage.setItem('token-init-date', new Date().getTime());
 
-      dispatch(setLogin({
-        uid: data.uid,
-        name: data.name
+    localStorage.setItem('token', data.token);
+    localStorage.setItem('token-init-date', new Date().getTime());
+
+    dispatch(setLogin({
+      uid: data.uid,
+      name: data.name
       }));
-
-      window.location.href = '/';
-
-    }
+    
     
   } catch (err) {
       addAlert(err?.response?.data?.msg, "error")
