@@ -23,7 +23,7 @@ export const startChecking = (endpoint) => async (dispatch) => {
 
     
   } catch (err) {
-   console.warn(err);
+   console.clear();
   } 
 
 }

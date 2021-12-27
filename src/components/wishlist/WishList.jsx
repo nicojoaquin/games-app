@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { getWishList } from "../../redux/actions/games/getWishList";
 import { updateWishGame } from "../../redux/actions/games/updateWishGame";
 import { deleteWishGame } from "../../redux/actions/games/deleteWishGame";
 import { setInput } from "../../redux/reducers/uiReducer";
@@ -21,7 +20,6 @@ const WishList = () => {
 
   useEffect(() => {
     dispatch(setInput(""));
-    dispatch(getWishList(uid, "events"));
   }, [dispatch, uid]);
 
   useEffect(() => {

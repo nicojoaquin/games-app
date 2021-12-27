@@ -15,7 +15,7 @@ export const getWishList = (endpoint) => async (dispatch) => {
     dispatch(setLoadWishList(data.actualEvents))
     
   } catch (err) {
-    console.warn(err);
+    console.clear();
     
   } finally{
     setTimeout(() => {

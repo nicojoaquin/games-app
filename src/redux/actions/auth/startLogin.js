@@ -26,12 +26,12 @@ export const startLogin = (email, password, endpoint) => async (dispatch) => {
         name: data.name
       }));
 
-      window.location.reload();
+      window.location.href = '/';
 
     }
     
   } catch (err) {
-      addAlert(err.response.data.msg, "error")
+      addAlert(err?.response?.data?.msg, "error")
   } finally{
       dispatch(setCheckingLogin(false));
   }
