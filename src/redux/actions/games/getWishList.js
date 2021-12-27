@@ -1,7 +1,7 @@
 import { fetchToken } from "../../../helpers/fetch"
 import { setLoadWishList, setWishListLoader } from "../../reducers/wishReducer";
 
-export const getWishList = (uid, endpoint) => async (dispatch) => {
+export const getWishList = (endpoint) => async (dispatch) => {
 
   const url = `${process.env.REACT_APP_API_URL}/${endpoint}`;
 
@@ -11,7 +11,6 @@ export const getWishList = (uid, endpoint) => async (dispatch) => {
 
     const res = await fetchToken(url);
     const data = await res.data;
-    // const filteredWishList = data.events.filter( game => game.user._id === uid )
 
     dispatch(setLoadWishList(data.actualEvents))
     
