@@ -5,10 +5,10 @@ import { getWishList } from "../../redux/actions/games/getWishList";
 import { updateWishGame } from "../../redux/actions/games/updateWishGame";
 import { deleteWishGame } from "../../redux/actions/games/deleteWishGame";
 import { setInput } from "../../redux/reducers/uiReducer";
-import { setGamesList } from "../../redux/reducers/gamesReducer";
 import Games from "../games/Games";
-import { Fade } from "react-awesome-reveal";
 import GamesLoader from "../assets/loaders/GamesLoader";
+import { Fade } from "react-awesome-reveal";
+import { setGamesList } from "../../redux/reducers/gamesReducer";
 import ButtonsLoader from "../assets/loaders/ButtonsLoader";
 
 const WishList = () => {

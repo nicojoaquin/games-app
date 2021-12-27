@@ -11,10 +11,9 @@ export const getWishList = (uid, endpoint) => async (dispatch) => {
 
     const res = await fetchToken(url);
     const data = await res.data;
+    // const filteredWishList = data.events.filter( game => game.user._id === uid )
 
-    const filteredWishList = data.events.filter( game => game.user._id === uid )
-
-    dispatch(setLoadWishList(filteredWishList))
+    dispatch(setLoadWishList(data.actualEvents))
     
   } catch (err) {
     console.warn(err);

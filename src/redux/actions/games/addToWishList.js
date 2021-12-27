@@ -8,18 +8,16 @@ export const addToWishList = (game, endpoint) => async (dispatch) => {
   
   const url = `${process.env.REACT_APP_API_URL}/${endpoint}`;
 
-
   dispatch(setWishLoader(true));
-
+  
   try {
     
     const res = await fetchToken(url, game, 'post');
     const data = await res.data;
-
-    if(data.ok) {  
-      dispatch(setWishList(game))
-      addAlert("Added to wishlist!", "success");
-    };
+    
+    dispatch(setWishList(data.event))
+    addAlert("Added to wishlist!", "success");
+    
 
   } catch (err) {
     console.warn(err.response?.data.msg);
