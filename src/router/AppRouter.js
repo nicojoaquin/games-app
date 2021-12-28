@@ -21,11 +21,10 @@ const AppRouter = () => {
   
   useEffect(() => {
     
-    dispatch(startChecking('auth/renew'))   
-    dispatch(getWishList('events')); 
+    dispatch(startChecking('auth/renew'));   
+    dispatch(getWishList('events'));   
 
   }, [dispatch, uid])
-
 
   return (
     <Router>
