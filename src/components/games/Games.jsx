@@ -21,10 +21,8 @@ const Games = ({
     <div className="col-lg-3 col-md-4 mb-4">
       <Fade>
         <div className="card bg-dark text-light rounded-3 shadow">
-          <img className="card-img-top" src={thumbnail} alt={title} />
-          <div className="card-body">
-            <h2 className="card-title fs-4">{title}</h2>
-            <hr />
+          <img src={thumbnail} alt={title} />
+          <div className={`d-flex ${btnClass} p-3 card-content`}>
             <div className={`d-flex ${btnClass}`}>
               <button
                 className="btn btn-primary"

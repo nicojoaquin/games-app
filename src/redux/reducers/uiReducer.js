@@ -7,8 +7,8 @@ export const uiSlice = createSlice({
     wishLoader: false,
     wishDeleteLoader : false,
     wishUpdateLoader: false,
-    inputValue: '',
-    open: false
+    open: false,
+    inputValue: ''
   },
   reducers: {
     setLoader: (state, action) => {
