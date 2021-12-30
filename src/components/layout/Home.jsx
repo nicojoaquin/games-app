@@ -31,7 +31,7 @@ const Home = () => {
       <div className="row p-3">
         <Fade>
           <input
-            type="text"
+            type="search"
             placeholder="Buscar..."
             className="form-control mb-3"
             onChange={handleInput}
