@@ -12,6 +12,7 @@ const Home = () => {
   const dispatch = useDispatch();
   const { filteredGames, list: games } = useSelector((state) => state.games);
   const { inputValue, loader } = useSelector((state) => state.ui);
+  const { wishListLoader } = useSelector((state) => state.wishList);
 
   useEffect(() => {
     dispatch(
@@ -24,7 +25,7 @@ const Home = () => {
     dispatch(setSearch(inputValue));
   };
 
-  if (loader) return <GamesLoader />;
+  if (loader || wishListLoader) return <GamesLoader />;
 
   return (
     <main className="container mt-4 position-relative">
