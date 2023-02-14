@@ -30,9 +30,9 @@ export const startRegister =
       );
     } catch (err) {
       addAlert(
-        err.response.data.errors
+        err.response?.data?.errors
           ? Object.values(err.response.data.errors)[0].msg
-          : err.response.data.msg,
+          : err.response?.data?.msg,
         "error"
       );
     } finally {

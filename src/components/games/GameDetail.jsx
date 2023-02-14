@@ -32,7 +32,7 @@ const GameDetail = ({
     const exist = wishList.find((wishGame) => wishGame.id === objectToSend.id);
     if (!uid) return navigate("/auth");
     if (exist) return addAlert("It's already on your wishlist!", "error");
-    dispatch(addToWishList(objectToSend, "events"));
+    dispatch(addToWishList(objectToSend, "games"));
   };
 
   return (
